@@ -1,0 +1,8 @@
+.navbar-toggler{
+    outline: none;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px 10px;
+}
+.active{
+    color: #50c1fe!important;
+}

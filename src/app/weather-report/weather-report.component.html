@@ -1,0 +1,56 @@
+<div class="container-fluid container-md">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <app-search></app-search>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="container py-3 px-5 text-center" *ngIf="!isLoading">
+    <div class="mb-4">
+        <button class="btn btn-info rounded-pill" (click)="getPosition()"><i class="bi bi-geo-alt-fill text-danger"></i>
+            Current
+            Location</button>
+    </div>
+    <div class="row gy-4 justify-content-center align-items-center" *ngIf="currData;else elseBlock">
+        <div class="col-sm-12">
+            <div class="display-6 text-secondary mb-3">Current Weather Information</div>
+        </div>
+        <div class="col-md-4">
+            <div class="box rounded-top shadow border">
+                <img src="{{currData.current.condition.icon}}" width="75px" height="75px">
+                <h4>{{currData.current.condition.text}}</h4>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="box rounded-top shadow border">
+                <h3 class="fw-normal"><span class="display-6">{{currData.current.temp_c}}</span><sup>&deg;</sup>C</h3>
+                <h4>{{currData.location.name}}</h4>
+                <p class="mb-0">{{currData.location.country}}</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box rounded-top shadow border">
+                <p class="mb-0">Last Updated</p>
+                <h3><span class="display-6">{{currData.current.last_updated|date:'shortTime'}}</span></h3>
+                <h4>{{currData.current.last_updated|date}}</h4>
+            </div>
+        </div>
+    </div>
+    <ng-template #elseBlock>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="display-6 text-secondary">Please enter city name</div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <div class="row mt-5 gy-4 justify-content-center" *ngIf="dailyData.length">
+        <div class="display-6 text-secondary mb-3">5-Day Weather Forecast</div>
+        <div class="col-md-4" *ngFor="let eachDay of dailyData">
+            <app-day-forecast [eachDay]="eachDay"></app-day-forecast>
+        </div>
+    </div>
+</div>

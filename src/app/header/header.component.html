@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg shadow navbar-dark">
+    <div class="container">
+        <a class="navbar-brand text-info"><img src="./assets/img/cloud-lightning-rain.svg" width="40px" height="40px" />
+            WEATHER REPORT</a>
+        <button class="navbar-toggler rounded-circle" data-bs-toggle="collapse" data-bs-target="#navbarMenuContent">
+            <i class="bi bi-three-dots-vertical"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenuContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#navbarMenuContent"
+                        routerLink="/weather" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }">Weather</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#navbarMenuContent"
+                        routerLink="/sports" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }">Sports
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
